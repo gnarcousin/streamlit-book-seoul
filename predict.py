@@ -5,9 +5,13 @@ from prophet import Prophet
 import numpy as np
 import matplotlib.font_manager as fm
 
+import os
+
+
+
 def home_predict(total_df):
-    path = 'C:\Windows\Fonts\H2MJRE.TTF'
-    fontprop = fm.FontProperties(fname=path, size=12)
+    fpath = os.path.join(os.getcwd(), 'Nanum_Gothic/NanumGothic-Bold.ttf')
+    prop = fm.FontProperties(fname=fpath)
     
     total_df['DEAL_YMD'] = pd.to_datetime(total_df['DEAL_YMD'], format='%Y-%m-%d')
     types = list(total_df['HOUSE_TYPE'].unique())
@@ -31,18 +35,18 @@ def home_predict(total_df):
         y = i % 2
     
         fig = model.plot(forcast1, uncertainty=True, ax=ax[x, y])
-        ax[x, y].set_title(f'서울시 {types[i]} 평균 가격 예측 시나리어 {periods}일간', fontproperties=fontprop)
-        ax[x, y].set_xlabel(f'날짜', fontproperties=fontprop)
-        ax[x, y].set_ylabel(f'평균가격(만원)', fontproperties=fontprop)
+        ax[x, y].set_title(f'서울시 {types[i]} 평균 가격 예측 시나리어 {periods}일간', fontproperties=prop)
+        ax[x, y].set_xlabel(f'날짜', fontproperties=prop)
+        ax[x, y].set_ylabel(f'평균가격(만원)', fontproperties=prop)
         
         for tick in ax[x, y].get_xticklabels():
             tick.set_rotation(30)
     st.pyplot(fig)
     
 def area_predict(total_df):
-    path = 'C:\Windows\Fonts\H2MJRE.TTF'
-    fontprop = fm.FontProperties(fname=path, size=12)
-    
+    fpath = os.path.join(os.getcwd(), 'Nanum_Gothic/NanumGothic-Bold.ttf')
+    prop = fm.FontProperties(fname=fpath)
+        
     total_df['DEAL_YMD'] = pd.to_datetime(total_df['DEAL_YMD'], format='%Y-%m-%d')
     
     total_df = total_df[total_df['HOUSE_TYPE'] == '아파트']
@@ -78,9 +82,9 @@ def area_predict(total_df):
         loop = loop + 1
     
         fig = model.plot(forcast, uncertainty=True, ax=ax[x, y])
-        ax[x, y].set_title(f'서울시 {sgg_nm} 평균 가격 예측 시나리어 {periods}일간', fontproperties=fontprop)
-        ax[x, y].set_xlabel(f'날짜', fontproperties=fontprop)
-        ax[x, y].set_ylabel(f'평균가격(만원)', fontproperties=fontprop)
+        ax[x, y].set_title(f'서울시 {sgg_nm} 평균 가격 예측 시나리어 {periods}일간', fontproperties=prop)
+        ax[x, y].set_xlabel(f'날짜', fontproperties=prop)
+        ax[x, y].set_ylabel(f'평균가격(만원)', fontproperties=prop)
         for tick in ax[x, y].get_xticklabels():
             tick.set_rotation(30)
             
