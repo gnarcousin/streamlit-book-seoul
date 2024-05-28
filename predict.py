@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.font_manager as fm
 
 def home_predict(total_df):
-    fpath = os.path.join(os.getcwd(), "NanumFont/NanumGothic.ttf")
+    fpath = os.path.join(os.getcwd(), "Nanum_Gothic/NanumGothic-Bold.ttf")
     fontprop = fm.FontProperties(fname=fpath, size=12)
     
     total_df['DEAL_YMD'] = pd.to_datetime(total_df['DEAL_YMD'], format='%Y-%m-%d')
