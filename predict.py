@@ -32,7 +32,7 @@ def home_predict(total_df):
         y = i % 2
     
         fig = model.plot(forcast1, uncertainty=True, ax=ax[x, y])
-        ax[x, y].set_title(f'서울시 {types[i]} 평균 가격 예측 시나리어 {periods}일간', fontproperties=fontprop)
+        ax[x, y].set_title(f'서울시 {types[i]} 평균 가격 예측 시나리오오 {periods}일간', fontproperties=fontprop)
         ax[x, y].set_xlabel(f'날짜', fontproperties=fontprop)
         ax[x, y].set_ylabel(f'평균가격(만원)', fontproperties=fontprop)
         
@@ -79,7 +79,7 @@ def area_predict(total_df):
         loop = loop + 1
     
         fig = model.plot(forcast, uncertainty=True, ax=ax[x, y])
-        ax[x, y].set_title(f'서울시 {sgg_nm} 평균 가격 예측 시나리어 {periods}일간', fontproperties=fontprop)
+        ax[x, y].set_title(f'서울시 {sgg_nm} 평균 가격 예측 시나리오 {periods}일간', fontproperties=fontprop)
         ax[x, y].set_xlabel(f'날짜', fontproperties=fontprop)
         ax[x, y].set_ylabel(f'평균가격(만원)', fontproperties=fontprop)
         for tick in ax[x, y].get_xticklabels():
